@@ -1,15 +1,12 @@
 import Link from 'next/link';
 
-async function getPosts() {
-  const res = await fetch('https://jsonplaceholder.org/posts');
-  if (!res.ok) {
-    throw new Error('Failed to fetch posts');
-  }
-  return res.json();
+async function getpost() {
+  const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+  return response.json();
 }
 
-export default async function PostsPage() {
-  const posts = await getPosts();
+export default async function postpage() {
+  const posts = await getpost();
 
   return (
     <div>
@@ -17,10 +14,13 @@ export default async function PostsPage() {
       <ul>
         {posts.map((post: any) => (
           <li key={post.id}>
-            <Link href={`/posts/${post.id}`}>{post.title}</Link>
+            <Link href={`/posts/${post.id}`} 
+            className="underline underline-offset-1 text-blue-600">
+              {post.title}</Link>
           </li>
         ))}
       </ul>
     </div>
   );
 }
+

@@ -6,7 +6,7 @@ export default function linking() {
  return (
    <div>
      <Link href="/posts">
-         Go to Assignemnt
+         Go to Assignment
      </Link>
    </div>
   )
